@@ -1,7 +1,6 @@
 const exp = require('express')
-const Workout = require('../models/Workout')
 const rou = exp.Router()
-
+const CreatWork = require('../controller/Workoutcontroller')
 rou.get('/', (req, res) =>{
     res.json({mssg:'Get all workouts'})
 })
@@ -10,16 +9,7 @@ rou.get('/:id',(req, res) =>{
     res.json({mssg:'Get a single workouts'})
 })
 
-rou.post('/',async(req, res) => {
-    const{title,reps,load} = req.body
-    try{
-        const workout = await Workout.create({title,reps,load})
-        res.status(200).json(workout)
-    } catch(error){
-        res.status(400).json({error:error.message})
-    }
-   
-})
+rou.post('/',CreatWork)
 rou.delete('/:id',(req, res) => {
     res.json({mssg:'Delete a single workouts'})
 })
