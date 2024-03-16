@@ -16,6 +16,6 @@ const workSche = new Sche({
         type:Number,// the 'load' field should be of type number
         required:true // the 'load' fild required
     }
-},{timeseries:true})
+},{timestamps:true})
 
 module.exports = mon.model('Workout',workSche)

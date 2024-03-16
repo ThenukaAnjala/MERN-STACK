@@ -1,15 +1,16 @@
 const exp = require('express')
 const rou = exp.Router()
-const CreatWork = require('../controller/Workoutcontroller')
-rou.get('/', (req, res) =>{
-    res.json({mssg:'Get all workouts'})
-})
+const {
+    createWorkout,
+    getWorkout,
+    singleWorkout
+} = require('../controller/Workoutcontroller')
+rou.get('/', getWorkout)
 
-rou.get('/:id',(req, res) =>{
-    res.json({mssg:'Get a single workouts'})
-})
+rou.get('/:id',singleWorkout)
 
-rou.post('/',CreatWork)
+rou.post('/', createWorkout)
+
 rou.delete('/:id',(req, res) => {
     res.json({mssg:'Delete a single workouts'})
 })
